@@ -10,7 +10,7 @@ function warn_and_continue() {
 }
 
 function info() {
-  echo -e "\033[0;32m[INFO] ${1}\033[0;39m" >&2
+  if [[ -n "${TGENV_DEBUG:-}" ]]; then echo -e "\033[0;32m[INFO] ${1}\033[0;39m" >&2; fi
 }
 
 # Curl wrapper to switch TLS option for each OS
